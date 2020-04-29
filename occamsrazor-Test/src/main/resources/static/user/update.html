@@ -1,0 +1,102 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Mypage</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+
+<body class="bg-light">
+
+	<div class="container">
+		<div class="py-5 text-center">
+			<img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg"
+				alt="" width="72" height="72">
+			<h2>수정 페이지(연습용) </h2>
+
+		</div>
+		<div class="row">
+			<div class="col-md-8 order-md-1">
+				<form class="needs-validation" novalidate="">
+					<div class="mb-3">
+						<label for="name">이름</label>
+						<nav aria-label="breadcrumb">
+							<div class="input-group mb-3">
+								<input id="name" type="text" class="form-control" aria-describedby="basic-addon1">
+							</div>
+						</nav>
+					</div>
+
+					<div class="mb-3">
+						<label for="userId">아이디</label>
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li id="userId" class="breadcrumb-item active" aria-current="page"></li>
+							</ol>
+						</nav>
+
+					</div>
+
+					<div class="mb-3">
+						<label for="password">비밀번호 </label>
+						<nav aria-label="breadcrumb">
+							<div class="input-group mb-3">
+								<input id="password" type="text" class="form-control" aria-describedby="basic-addon1">
+							</div>
+						</nav>
+
+					</div>
+					<div class="mb-3">
+						<label for="ssn">주민번호 </label>
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li id="ssn" class="breadcrumb-item active" aria-current="page"></li>
+							</ol>
+						</nav>
+
+					</div>
+					<div class="mb-3">
+						<label for="addr">주소 </label>
+						<nav aria-label="breadcrumb">
+							<div class="input-group mb-3">
+								<input id="addr" type="text" class="form-control" aria-describedby="basic-addon1">
+							</div>
+						</nav>
+					</div>
+
+					<hr class="mb-4">
+					<button id="confium_Button" class="btn btn-success btn-lg btn-block" type="submit">확인</button>
+					<button id="cancel_Button" class="btn btn-warning btn-lg btn-block" type="submit">취소</button>
+					<button id="remove_Button" class="btn btn-danger btn-lg btn-block" type="submit">회원탈퇴</button>
+				</form>
+			</div>
+		</div>
+
+		<footer class="my-5 pt-5 text-muted text-center text-small">
+			<p class="mb-1">© 2017-2018 Company Name</p>
+			<ul class="list-inline">
+				<li class="list-inline-item"><a href="#">Privacy</a></li>
+				<li class="list-inline-item"><a href="#">Terms</a></li>
+				<li class="list-inline-item"><a href="#">Support</a></li>
+			</ul>
+		</footer>
+	</div>
+
+	<script>
+		$.getJSON('/user/detail'+sessionStorage.getItem('userid'),d=>{
+			$('#name').val(d.name),
+			$('#password').val(d.userid),
+			$('#userId').val(d.password),
+			$('#ssn').val(d.ssn),
+			$('#addr').val(d.addr)
+		})
+		
+
+	</script>
+
+</body>
+
+</html>
